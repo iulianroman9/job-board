@@ -1,17 +1,18 @@
 :root {
-  --color-slate: #393e46;
-  --color-dark-slate: #222831;
-  --color-beige: #dfd0b8;
-  --color-dark-beige: #948979;
+  /* https://coolors.co/palette/353535-3c6e71-ffffff-d9d9d9-284b63 */
+  --graphite: #353535;
+  --stormy-teal: #3c6e71;
+  --dust-grey: #d9d9d9;
+  --yale-blue: #284b63;
+
+  color-scheme: light dark;
+
+  color: white;
+  background-color: var(--graphite);
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: var(--color-beige);
-  background-color: var(--color-dark-slate);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
