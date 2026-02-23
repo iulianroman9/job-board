@@ -1,0 +1,19 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: relative;
+}
+
+.footer {
+  background-color: var(--bg-black);
+  text-align: center;
+  padding: 1rem;
+  position: sticky;
+  bottom: 0;
+}
+
+.contact-link {
+  color: var(--text-white);
+}
