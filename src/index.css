@@ -1,16 +1,23 @@
+@import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
+
 :root {
-  /* https://coolors.co/palette/353535-3c6e71-ffffff-d9d9d9-284b63 */
-  --graphite: #353535;
-  --stormy-teal: #3c6e71;
-  --dust-grey: #d9d9d9;
-  --yale-blue: #284b63;
+  --bg-black: #000000;
+  --text-white: #ffffff;
+  --primary-blue: #5324fd;
+  --accent-red: #f5001e;
+  --accent-yellow: #fcc636;
+  --card-gray: #1c1c1e;
+  --text-muted: #a0a0a5;
+  color-scheme: dark;
+  background-color: var(--bg-black);
+  color: var(--text-white);
 
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  color: white;
-  background-color: var(--graphite);
+  color: var(--text-white);
+  background-color: var(--bg-black);
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Satoshi", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;

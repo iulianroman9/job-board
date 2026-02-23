@@ -1,69 +1,101 @@
+.logo-img {
+  width: clamp(5rem, 15vw, 8rem);
+  height: auto;
+}
+
 .landing-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-black);
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .landing-page-description {
-  margin: 1rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
-  overflow-y: auto;
+  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
 }
 
-#main-heading {
-  text-align: center;
+.landing-page-description > p {
+  color: var(--text-muted);
+  font-size: clamp(1.1rem, 1.5vw, 1.2rem);
+  max-width: 45rem;
 }
 
-.landing-page-navigation {
-  background-color: var(--stormy-teal);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.features-list {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 50rem;
+}
+
+.features-list li {
+  background-color: var(--card-gray);
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .landing-navlinks-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 10rem;
+  gap: 1rem;
+  margin: 1rem;
 }
 
 .landing-page-link {
   text-align: center;
-  box-sizing: border-box;
   text-decoration: none;
-  color: var(--text);
-  background-color: var(--yale-blue);
-  padding: 0.5rem 1rem;
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+  min-width: 12rem;
+}
+
+.primary-link {
+  background-color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  color: var(--text-white);
+}
+
+.primary-link:hover {
+  border-color: var(--text-white);
+}
+
+.secondary-link {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  border: 2px solid var(--card-gray);
+}
+
+.secondary-link:hover {
+  border-color: var(--primary-blue);
+  background-color: var(--card-gray);
+}
+
+.landing-page-navigation {
+  position: sticky;
+  bottom: 5rem;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 1rem;
-  transition: all 0.3s ease;
-  border: 0.25rem solid var(--yale-blue);
+  backdrop-filter: blur(12px);
+  border: 2px solid var(--card-gray);
 }
 
-.landing-page-link:hover {
-  background-color: var(--dust-grey);
-  color: var(--graphite);
-}
-
-@media (max-width: 320px) {
-  .landing-page {
+@media (max-height: 680px), (max-width: 390px) {
+  .features-list {
     grid-template-columns: 1fr;
-  }
-
-  .landing-page-description {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
   }
 }
