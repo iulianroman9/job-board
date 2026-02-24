@@ -3,6 +3,7 @@ import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs, setCurrentPage } from "./jobsSlice";
 import { Link } from "react-router";
+import { experienceClassName } from "../../utils/colors";
 import PaginationControls from "../PaginationControls";
 
 function Jobs() {
@@ -16,6 +17,11 @@ function Jobs() {
       dispatch(fetchJobs());
     }
   }, [dispatch, currentPage, items.length]);
+
+  useEffect(
+    () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    [currentPage],
+  );
 
   const totalItems = items.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
@@ -36,7 +42,7 @@ function Jobs() {
   }, [currentPage, totalPages, dispatch]);
 
   if (isLoading) {
-    return <div className="loading-message">loading jobs...</div>;
+    return <div className="loading-message">Loading jobs...</div>;
   }
 
   if (error) {
@@ -55,7 +61,7 @@ function Jobs() {
         {currentItems.map((job) => (
           <Link to={`/jobs/${job.id}`} key={job.id} className="job-card-link">
             <section
-              className={`job-main-card ${job.experience === "Junior" ? "card-junior" : job.experience === "Mid-level" ? "card-mid" : job.experience === "Senior" ? "card-senior" : ""}`}
+              className={`job-main-card ${experienceClassName(job.experience)}`}
             >
               <div className="job-main-header">
                 <img src="/logo.png" alt="Company Logo" className="job-logo" />
