@@ -89,7 +89,7 @@
   position: sticky;
   bottom: 5rem;
   background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 1rem;
+  border-radius: 3rem;
   backdrop-filter: blur(12px);
   border: 2px solid var(--card-gray);
 }
