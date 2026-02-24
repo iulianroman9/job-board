@@ -1,7 +1,7 @@
-import "./Landing.css";
+import "./Home.css";
 import { NavLink } from "react-router";
 
-function Landing() {
+function Home() {
   return (
     <main className="landing-page" aria-labelledby="main-heading">
       <div className="landing-page-description">
@@ -43,4 +43,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default Home;
