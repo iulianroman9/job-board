@@ -31,7 +31,7 @@ function Landing() {
 
       <nav className="landing-page-navigation">
         <div className="landing-navlinks-container">
-          <NavLink to="/dashboard" className="landing-page-link primary-link">
+          <NavLink to="/jobs" className="landing-page-link primary-link">
             Start searching &rarr;
           </NavLink>
           <NavLink to="/admin" className="landing-page-link secondary-link">
