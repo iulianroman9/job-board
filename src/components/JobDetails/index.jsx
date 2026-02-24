@@ -1,27 +1,44 @@
 import "./JobDetails.css";
-import { NavLink } from "react-router";
-
-const job = {
-  id: "1",
-  created_at: "2 days ago",
-  title: "Graphic Designer",
-  company: "Spotify",
-  location: "Remote",
-  experience: "Junior",
-  employment_type: "Fulltime",
-  salary: "$50K/mo",
-  description:
-    "Join our marketing team to create compelling visual assets that resonate with our global audience of listeners and creators.",
-  requirements: [
-    "A strong portfolio of illustrations or other graphics",
-    "Familiarity with design software and technologies",
-    "A keen eye for aesthetics and details",
-  ],
-  role_description:
-    "You will create visual concepts, by hand or using computer software, to communicate ideas that inspire, inform, or captivate consumers.",
-};
+import { NavLink, useParams } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchJobs } from "../Jobs/jobsSlice";
 
 function JobDetails() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const { items, isLoading, error } = useSelector((state) => state.jobs);
+
+  useEffect(() => {
+    if (items.length === 0) {
+      dispatch(fetchJobs());
+    }
+  }, [dispatch, items.length]);
+
+  const job = items.find((job) => String(job.id) === id);
+
+  if (isLoading) {
+    return <div className="loading-message">Loading job details...</div>;
+  }
+
+  if (error) {
+    return <div className="error-message">Failed to load job: {error}</div>;
+  }
+
+  if (!job) {
+    return (
+      <div className="job-details-container">
+        <nav className="job-details-nav">
+          <NavLink to="/jobs" className="back-link">
+            &larr; Back to Jobs
+          </NavLink>
+        </nav>
+        <div className="error-message">Job not found!</div>
+      </div>
+    );
+  }
+
   return (
     <div className="job-details-container">
       <nav className="job-details-nav">
@@ -31,7 +48,9 @@ function JobDetails() {
       </nav>
 
       <main className="job-details-page">
-        <section className="job-main-card">
+        <section
+          className={`job-main-card ${job.experience === "Junior" ? "card-junior" : job.experience === "Mid-level" ? "card-mid" : job.experience === "Senior" ? "card-senior" : ""}`}
+        >
           <div className="job-main-header">
             <img src="/logo.png" alt="Company Logo" className="job-logo" />
             <div>
@@ -47,7 +66,7 @@ function JobDetails() {
           </div>
 
           <div className="job-salary">
-            <p>{job.created_at}</p>
+            <p>Posted: {new Date(job.created_at).toLocaleDateString()}</p>
             <p>{job.salary}</p>
           </div>
         </section>
@@ -57,19 +76,23 @@ function JobDetails() {
           <p>{job.description}</p>
         </section>
 
-        <section className="job-requirements">
-          <h3>Skills & Requirements</h3>
-          <ul>
-            {job.requirements.map((requirement, index) => (
-              <li key={index}>{requirement}</li>
-            ))}
-          </ul>
-        </section>
+        {job.requirements && job.requirements.length > 0 && (
+          <section className="job-requirements">
+            <h3>Skills & Requirements</h3>
+            <ul>
+              {job.requirements.map((requirement, index) => (
+                <li key={index}>{requirement}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-        <section className="job-role">
-          <h3>Your Role</h3>
-          <p>{job.role_description}</p>
-        </section>
+        {job.role_description && (
+          <section className="job-role">
+            <h3>Your Role</h3>
+            <p>{job.role_description}</p>
+          </section>
+        )}
       </main>
 
       <div className="job-details-actions">

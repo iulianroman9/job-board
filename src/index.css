@@ -3,9 +3,9 @@
 :root {
   --bg-black: #000000;
   --text-white: #ffffff;
-  --primary-blue: #5324fd;
-  --accent-red: #f5001e;
-  --accent-yellow: #fcc636;
+  --primary-blue: #7b5cec;
+  --accent-red: #e8596a;
+  --accent-green: #6bd1a0;
   --card-gray: #1c1c1e;
   --text-muted: #a0a0a5;
   color-scheme: dark;
