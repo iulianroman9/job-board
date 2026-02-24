@@ -1,0 +1,47 @@
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+}
+
+.page-btn {
+  background-color: var(--card-gray, #1c1c1e);
+  color: var(--text-white, #ffffff);
+  border: 1px solid transparent;
+  padding: 0.6rem 1.25rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-btn:hover:not(:disabled) {
+  background-color: #2a2a2d;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-info {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.page-info strong {
+  color: var(--text-white, #ffffff);
+}

@@ -1,0 +1,35 @@
+.jobs-container {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.job-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.job-main-card {
+  background-color: var(--card-gray);
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.job-main-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.jobs-header {
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+}

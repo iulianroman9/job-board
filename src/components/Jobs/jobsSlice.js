@@ -25,7 +25,7 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async ({ page, limit
 
 const initialState = {
     items: [],
-    isLoading: false,
+    isLoading: true,
     totalItems: 0,
     error: null,
     currentPage: 1,

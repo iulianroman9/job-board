@@ -33,11 +33,7 @@ function JobDetails() {
       <main className="job-details-page">
         <section className="job-main-card">
           <div className="job-main-header">
-            <img
-              src="http://localhost:5173/logo.png"
-              alt="Company Logo"
-              className="job-logo"
-            />
+            <img src="/logo.png" alt="Company Logo" className="job-logo" />
             <div>
               <h2>{job.title}</h2>
               <p>{job.company}</p>
