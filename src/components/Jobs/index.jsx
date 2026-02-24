@@ -7,10 +7,21 @@ import PaginationControls from "../PaginationControls";
 
 function Jobs() {
   const dispatch = useDispatch();
-  const { items, isLoading, error, currentPage, itemsPerPage, totalItems } =
-    useSelector((state) => state.jobs);
+  const { items, isLoading, error, currentPage, itemsPerPage } = useSelector(
+    (state) => state.jobs,
+  );
 
+  useEffect(() => {
+    if (items.length === 0) {
+      dispatch(fetchJobs());
+    }
+  }, [dispatch, currentPage, items.length]);
+
+  const totalItems = items.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+  const indexFirst = (currentPage - 1) * itemsPerPage;
+  const indexLast = indexFirst + itemsPerPage;
+  const currentItems = items.slice(indexFirst, indexLast);
 
   const handlePrevPage = useCallback(() => {
     if (currentPage > 1) {
@@ -24,12 +35,8 @@ function Jobs() {
     }
   }, [currentPage, totalPages, dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchJobs({ page: currentPage, limit: itemsPerPage }));
-  }, [dispatch, currentPage, itemsPerPage]);
-
   if (isLoading) {
-    return <div className="jobs-container">loading jobs...</div>;
+    return <div className="loading-message">loading jobs...</div>;
   }
 
   if (error) {
@@ -45,7 +52,7 @@ function Jobs() {
       </div>
 
       <div className="jobs-list">
-        {items.map((job) => (
+        {currentItems.map((job) => (
           <Link to={`/jobs/${job.id}`} key={job.id} className="job-card-link">
             <section className="job-main-card">
               <div className="job-main-header">

@@ -1,21 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import supabase from "../../utils/supabase";
 
-export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async ({ page, limit }, { rejectWithValue }) => {
+export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (_, { rejectWithValue }) => {
     try {
-        const rangeFrom = (page - 1) * limit;
-        const rangeTo = page * limit - 1;
-
-        const { data, error, count } = await supabase
+        const { data, error } = await supabase
         .from('jobs')
-        .select('*', { count: 'exact' })
-        .order('created_at', { ascending: false })
-        .range(rangeFrom, rangeTo);
+        .select('*', { count: 'exact' });
 
         if (error) {
             throw error;
         }
-        return { data, count, page };
+        return data;
     }
     catch (error) {
         return rejectWithValue(error.message);
@@ -26,7 +21,6 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async ({ page, limit
 const initialState = {
     items: [],
     isLoading: true,
-    totalItems: 0,
     error: null,
     currentPage: 1,
     itemsPerPage: 8,
@@ -47,8 +41,7 @@ const jobsSlice = createSlice({
         })
         .addCase(fetchJobs.fulfilled, (state, action) => {
             state.isLoading = false;
-            state.items = action.payload.data;
-            state.totalItems = action.payload.count;
+            state.items = action.payload;
         })
         .addCase(fetchJobs.rejected, (state, action) => {
             state.isLoading = false;
