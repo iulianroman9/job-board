@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import Landing from "./components/Landing";
-import Dashboard from "./components/Dashboard";
+import Jobs from "./components/Jobs";
 import Contact from "./components/Contact";
+import JobDetails from "./components/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +15,12 @@ const router = createBrowserRouter([
         Component: Landing,
       },
       {
-        path: "dashboard",
-        Component: Dashboard,
+        path: "jobs",
+        Component: Jobs,
+      },
+      {
+        path: "/jobs/:id",
+        Component: JobDetails,
       },
       {
         path: "contact",
