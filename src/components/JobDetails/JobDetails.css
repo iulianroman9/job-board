@@ -41,14 +41,17 @@
 
 .card-junior {
   background-color: var(--accent-green);
+  border: 2px solid var(--accent-green);
 }
 
 .card-mid {
   background-color: var(--accent-red);
+  border: 2px solid var(--accent-red);
 }
 
 .card-senior {
   background-color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
 }
 
 .job-main-header {
@@ -161,8 +164,6 @@
 }
 
 .apply-button {
-  background-color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
   color: var(--text-white);
 }
 
@@ -177,6 +178,5 @@
 }
 
 .save-button:hover {
-  border-color: var(--primary-blue);
-  color: var(--primary-blue);
+  opacity: 0.8;
 }

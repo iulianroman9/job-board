@@ -3,6 +3,7 @@ import { NavLink, useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchJobs } from "../Jobs/jobsSlice";
+import { experienceClassName } from "../../utils/colors";
 
 function JobDetails() {
   const { id } = useParams();
@@ -49,7 +50,7 @@ function JobDetails() {
 
       <main className="job-details-page">
         <section
-          className={`job-main-card ${job.experience === "Junior" ? "card-junior" : job.experience === "Mid-level" ? "card-mid" : job.experience === "Senior" ? "card-senior" : ""}`}
+          className={`job-main-card ${experienceClassName(job.experience)}`}
         >
           <div className="job-main-header">
             <img src="/logo.png" alt="Company Logo" className="job-logo" />
@@ -96,7 +97,11 @@ function JobDetails() {
       </main>
 
       <div className="job-details-actions">
-        <button className="job-details-btn apply-button">Apply Now</button>
+        <button
+          className={`job-details-btn apply-button ${experienceClassName(job.experience)}`}
+        >
+          Apply Now
+        </button>
         <button className="job-details-btn save-button">Save Job</button>
       </div>
     </div>
