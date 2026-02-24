@@ -39,15 +39,15 @@
   gap: 1rem;
 }
 
-.job-main-card.card-junior {
+.card-junior {
   background-color: var(--accent-green);
 }
 
-.job-main-card.card-mid {
+.card-mid {
   background-color: var(--accent-red);
 }
 
-.job-main-card.card-senior {
+.card-senior {
   background-color: var(--primary-blue);
 }
 
