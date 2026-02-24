@@ -39,6 +39,18 @@
   gap: 1rem;
 }
 
+.card-junior {
+  background-color: var(--accent-green);
+}
+
+.card-mid {
+  background-color: var(--accent-red);
+}
+
+.card-senior {
+  background-color: var(--primary-blue);
+}
+
 .job-main-header {
   padding: 0.5rem 0.5rem;
   display: flex;
@@ -76,7 +88,6 @@
   align-items: center;
   margin-top: 0.5rem;
   padding-top: 1rem;
-  border-top: 1px dashed rgba(0, 0, 0, 0.2);
   background-color: var(--text-white);
   color: var(--bg-black);
   margin: 0 -1rem -1rem -1rem;

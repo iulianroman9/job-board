@@ -54,7 +54,9 @@ function Jobs() {
       <div className="jobs-list">
         {currentItems.map((job) => (
           <Link to={`/jobs/${job.id}`} key={job.id} className="job-card-link">
-            <section className="job-main-card">
+            <section
+              className={`job-main-card ${job.experience === "Junior" ? "card-junior" : job.experience === "Mid-level" ? "card-mid" : job.experience === "Senior" ? "card-senior" : ""}`}
+            >
               <div className="job-main-header">
                 <img src="/logo.png" alt="Company Logo" className="job-logo" />
                 <div>
