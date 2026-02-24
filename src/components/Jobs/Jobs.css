@@ -33,3 +33,19 @@
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
 }
+
+.loading-message {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 2rem;
+}
+
+.error-message {
+  text-align: center;
+  color: var(--accent-red);
+  font-size: 1.1rem;
+  padding: 2rem;
+  font-weight: bold;
+}
