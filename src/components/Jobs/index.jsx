@@ -1,7 +1,7 @@
 import "./Jobs.css";
 import { useEffect, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchJobs, setCurrentPage } from "./jobsSlice";
+import { fetchJobs, setCurrentPage } from "../../store/jobsSlice";
 import { Link } from "react-router";
 import { experienceClassName } from "../../utils/colors";
 import PaginationControls from "../PaginationControls";

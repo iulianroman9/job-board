@@ -1,7 +1,7 @@
 import "./JobFilters.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../Jobs/jobsSlice";
+import { setFilters } from "../../store/jobsSlice";
 
 function JobFilters() {
   const dispatch = useDispatch();

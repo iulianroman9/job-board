@@ -4,6 +4,7 @@ import Landing from "./components/Home";
 import Jobs from "./components/Jobs";
 import Contact from "./components/Contact";
 import JobDetails from "./components/JobDetails";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <div>Admin Portal</div>,
+      },
+      {
+        path: "/login",
+        Component: Login,
       },
     ],
   },
