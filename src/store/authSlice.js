@@ -14,7 +14,17 @@ export const loginUser = createAsyncThunk(
         throw error;
       }
 
-      const isAdmin = data.user.user_metadata?.role === "admin";
+      const { data: profileData, error: profileError } = await supabase
+      .from('profiles')
+      .select('is_admin')
+      .eq('id', data.user.id)
+      .single();
+
+      if(profileError) {
+        throw profileError;
+      }
+
+      const isAdmin = profileData?.is_admin === true;
 
       return {
         user: data.user,

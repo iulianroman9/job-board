@@ -5,6 +5,7 @@ import Jobs from "./components/Jobs";
 import Contact from "./components/Contact";
 import JobDetails from "./components/JobDetails";
 import Login from "./components/Login";
+import { NavLink } from "react-router";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <div>Admin Portal</div>,
+        element: (
+          <div>
+            Admin Portal<NavLink to="/jobs">jobs</NavLink>
+          </div>
+        ),
       },
       {
         path: "/login",

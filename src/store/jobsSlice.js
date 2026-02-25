@@ -18,6 +18,24 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (_, { rejectWi
 }
 );
 
+export const deleteJob = createAsyncThunk("jobs/deleteJob", async (jobId, {rejectWithValue}) =>{
+    try {
+        const {error} = await supabase
+        .from('jobs')
+        .delete()
+        .eq('id', jobId);
+
+        if (error) {
+            throw error;
+        }
+
+        return jobId;
+    }
+    catch (error) {
+        return rejectWithValue(error.message);
+    }
+});
+
 const savedFilters = JSON.parse(localStorage.getItem("jobFilters")) || {
     search: "",
     sortDate: "newest",
@@ -57,6 +75,9 @@ const jobsSlice = createSlice({
         .addCase(fetchJobs.rejected, (state, action) => {
             state.isLoading = false;
             state.error = action.payload;
+        })
+        .addCase(deleteJob.fulfilled, (state, action) => {
+            state.items = state.items.filter((job) => job.id !== action.payload);
         });
     }
 });
