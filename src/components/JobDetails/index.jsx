@@ -1,30 +1,67 @@
 import "./JobDetails.css";
 import { NavLink, useParams } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { fetchJobs } from "../Jobs/jobsSlice";
+import { useEffect, useState } from "react";
 import { experienceClassName } from "../../utils/colors";
+import { useSelector } from "react-redux";
+import supabase from "../../utils/supabase";
 
 function JobDetails() {
   const { id } = useParams();
-  const dispatch = useDispatch();
-
-  const { items, isLoading, error } = useSelector((state) => state.jobs);
+  const [job, setJob] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { items } = useSelector((state) => state.jobs);
 
   useEffect(() => {
-    if (items.length === 0) {
-      dispatch(fetchJobs());
-    }
-  }, [dispatch, items.length]);
+    const jobFromStore = items.find((job) => job.id === id);
 
-  const job = items.find((job) => String(job.id) === id);
+    if (jobFromStore) {
+      setJob(jobFromStore);
+      setIsLoading(false);
+      return;
+    }
+
+    const fetchSingleJob = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const { data, error } = await supabase
+          .from("jobs")
+          .select("*")
+          .eq("id", id)
+          .single();
+
+        if (error) throw error;
+
+        setJob(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchSingleJob();
+  }, [id, items]);
 
   if (isLoading) {
     return <div className="loading-message">Loading job details...</div>;
   }
 
-  if (error) {
-    return <div className="error-message">Failed to load job: {error}</div>;
+  if (error || !job) {
+    return (
+      <div className="job-details-container">
+        <nav className="job-details-nav">
+          <NavLink to="/jobs" className="back-link">
+            &larr; Back to Jobs
+          </NavLink>
+        </nav>
+        <div className="error-message">
+          {error ? `Failed to load job: ${error}` : "Job not found!"}
+        </div>
+      </div>
+    );
   }
 
   if (!job) {
