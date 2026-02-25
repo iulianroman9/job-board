@@ -1,16 +1,21 @@
 import "./Jobs.css";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs, setCurrentPage } from "./jobsSlice";
 import { Link } from "react-router";
 import { experienceClassName } from "../../utils/colors";
 import PaginationControls from "../PaginationControls";
+import JobFilters from "../JobFilters";
+import {
+  filterByExperience,
+  filterBySearch,
+  sortByDate,
+} from "../../utils/jobFilters";
 
 function Jobs() {
   const dispatch = useDispatch();
-  const { items, isLoading, error, currentPage, itemsPerPage } = useSelector(
-    (state) => state.jobs,
-  );
+  const { items, isLoading, error, currentPage, itemsPerPage, filters } =
+    useSelector((state) => state.jobs);
 
   useEffect(() => {
     if (items.length === 0) {
@@ -23,11 +28,19 @@ function Jobs() {
     [currentPage],
   );
 
-  const totalItems = items.length;
+  const filteredItems = useMemo(() => {
+    let result = items;
+    result = filterBySearch(result, filters.search);
+    result = filterByExperience(result, filters.experience);
+    result = sortByDate(result, filters.sortDate);
+    return result;
+  }, [items, filters]);
+
+  const totalItems = filteredItems.length;
   const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
   const indexFirst = (currentPage - 1) * itemsPerPage;
   const indexLast = indexFirst + itemsPerPage;
-  const currentItems = items.slice(indexFirst, indexLast);
+  const currentItems = filteredItems.slice(indexFirst, indexLast);
 
   const handlePrevPage = useCallback(() => {
     if (currentPage > 1) {
@@ -50,12 +63,18 @@ function Jobs() {
   }
 
   return (
-    <div className="jobs-container">
+    <main className="jobs-container">
       <div className="jobs-header">
         <h2>
           Find Jobs <span>({totalItems})</span>
         </h2>
       </div>
+
+      <JobFilters />
+
+      {currentItems.length === 0 && (
+        <div className="no-results">No jobs that match your criteria.</div>
+      )}
 
       <div className="jobs-list">
         {currentItems.map((job) => (
@@ -78,7 +97,7 @@ function Jobs() {
               </div>
 
               <div className="job-salary">
-                <p>Posted: {new Date(job.created_at).toLocaleDateString()}</p>
+                <p>{new Date(job.created_at).toLocaleDateString()}</p>
                 <p>{job.salary}</p>
               </div>
             </section>
@@ -94,7 +113,7 @@ function Jobs() {
           onNextPage={handleNextPage}
         />
       )}
-    </div>
+    </main>
   );
 }
 

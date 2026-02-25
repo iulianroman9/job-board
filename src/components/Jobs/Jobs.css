@@ -42,6 +42,14 @@
   padding: 2rem;
 }
 
+.no-results {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 2rem;
+}
+
 .error-message {
   text-align: center;
   color: var(--accent-red);

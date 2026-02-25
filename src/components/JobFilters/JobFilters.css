@@ -1,0 +1,52 @@
+.job-filters-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--card-gray);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-group > * {
+  min-width: 5rem;
+}
+
+.search-group {
+  flex: 1.25;
+  min-width: 10rem;
+}
+
+.select-group {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-input,
+.filter-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: #2a2a2d;
+  color: var(--text-white, #ffffff);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-input::placeholder {
+  color: var(--text-muted, #a0a0a5);
+}
+
+.filter-input:focus,
+.filter-select:focus {
+  border-color: #3b82f6;
+}

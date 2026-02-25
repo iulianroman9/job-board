@@ -18,12 +18,19 @@ export const fetchJobs = createAsyncThunk("jobs/fetchJobs", async (_, { rejectWi
 }
 );
 
+const savedFilters = JSON.parse(localStorage.getItem("jobFilters")) || {
+    search: "",
+    sortDate: "newest",
+    experience: "all"
+};
+
 const initialState = {
     items: [],
     isLoading: true,
     error: null,
     currentPage: 1,
     itemsPerPage: 8,
+    filters: savedFilters
 }
 
 const jobsSlice = createSlice({
@@ -32,6 +39,10 @@ const jobsSlice = createSlice({
     reducers: {
         setCurrentPage(state, action) {
             state.currentPage = action.payload;
+        },
+        setFilters(state, action) {
+            state.filters = { ...state.filters, ...action.payload};
+            state.currentPage = 1;
         }
     },
     extraReducers: (builder) => {
@@ -50,5 +61,5 @@ const jobsSlice = createSlice({
     }
 });
 
-export const { setCurrentPage } = jobsSlice.actions;
+export const { setCurrentPage, setFilters } = jobsSlice.actions;
 export default jobsSlice.reducer;

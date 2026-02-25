@@ -67,7 +67,7 @@ function JobDetails() {
           </div>
 
           <div className="job-salary">
-            <p>Posted: {new Date(job.created_at).toLocaleDateString()}</p>
+            <p>{new Date(job.created_at).toLocaleDateString()}</p>
             <p>{job.salary}</p>
           </div>
         </section>
