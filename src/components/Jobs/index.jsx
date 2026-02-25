@@ -83,7 +83,11 @@ function Jobs() {
               className={`job-main-card ${experienceClassName(job.experience)}`}
             >
               <div className="job-main-header">
-                <img src="/logo.png" alt="Company Logo" className="job-logo" />
+                <img
+                  src={`/${job.company.toLowerCase()}.png`}
+                  alt="Company Logo"
+                  className="job-logo"
+                />
                 <div>
                   <h2>{job.title}</h2>
                   <p>{job.company}</p>
