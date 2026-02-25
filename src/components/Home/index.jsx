@@ -34,8 +34,8 @@ function Home() {
           <NavLink to="/jobs" className="landing-page-link primary-link">
             Start searching &rarr;
           </NavLink>
-          <NavLink to="/admin" className="landing-page-link secondary-link">
-            Admin portal
+          <NavLink to="/login" className="landing-page-link secondary-link">
+            Log in
           </NavLink>
         </div>
       </nav>

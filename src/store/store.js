@@ -1,5 +1,6 @@
 import { configureStore, createListenerMiddleware } from "@reduxjs/toolkit";
-import jobsReducer, {setFilters} from "../components/Jobs/jobsSlice";
+import jobsReducer, {setFilters} from "./jobsSlice";
+import authReducer from "./authSlice";
 
 const listenerMiddleware = createListenerMiddleware();
 
@@ -14,6 +15,7 @@ listenerMiddleware.startListening({
 const store = configureStore({
     reducer: {
         jobs: jobsReducer,
+        auth: authReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(listenerMiddleware.middleware)
 });

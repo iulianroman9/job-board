@@ -1,6 +1,7 @@
 .logo-img {
   width: clamp(5rem, 15vw, 8rem);
   height: auto;
+  filter: invert(100%);
 }
 
 .landing-page {
