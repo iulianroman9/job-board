@@ -1,8 +1,18 @@
 import "./Contact.css";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import supabase from "../../utils/supabase";
 
 function Contact() {
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    if (window.history.state && window.history.state.idx > 0) {
+      navigate(-1);
+    } else {
+      navigate("/", { replace: true });
+    }
+  };
+
   const [formData, setFormData] = useState({
     email: "",
     subject: "",
@@ -63,6 +73,12 @@ function Contact() {
 
   return (
     <div className="contact-page">
+      <nav className="contact-nav">
+        <button onClick={handleGoBack} className="contact-back-btn">
+          &larr; Go Back
+        </button>
+      </nav>
+
       <div className="contact-container">
         <h2>Message us</h2>
         <p className="contact-subtitle">Have a question? Send us a message!</p>
