@@ -1,15 +1,19 @@
 import "./App.css";
-import { Outlet } from "react-router";
-import { NavLink } from "react-router";
+import { Outlet, NavLink, useLocation } from "react-router";
+
 function App() {
+  const location = useLocation();
+
   return (
     <div className="app">
       <Outlet />
       <footer className="footer">
         <p>&copy; All rights reserved.</p>
-        <NavLink to="/contact" className="contact-link">
-          Contact us
-        </NavLink>
+        {location.pathname !== "/contact" && (
+          <NavLink to="/contact" className="contact-link">
+            Contact us
+          </NavLink>
+        )}
       </footer>
     </div>
   );

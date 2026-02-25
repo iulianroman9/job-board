@@ -2,8 +2,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
+  flex-direction: column;
+  max-width: 40rem;
   width: 100%;
+  gap: 1rem;
+}
+
+.contact-nav {
+  width: 100%;
+  max-width: 40rem;
+  padding-left: 2.5rem;
+}
+
+.contact-back-btn {
+  background: none;
+  border: none;
+  color: var(--text-white, #ffffff);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.2s ease;
+}
+
+.contact-back-btn:hover {
+  opacity: 0.8;
 }
 
 .contact-container {
@@ -90,7 +114,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: opacity 0.2s;
-  margin-top: 0.5rem;
+  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .submit-btn:hover:not(:disabled) {
