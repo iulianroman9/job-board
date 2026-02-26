@@ -1,7 +1,7 @@
 import "./Jobs.css";
 import { useEffect, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchJobs, setCurrentPage } from "../../store/jobsSlice";
+import { fetchJobs, setCurrentPage, deleteJob } from "../../store/jobsSlice";
 import { Link } from "react-router";
 import { experienceClassName } from "../../utils/colors";
 import PaginationControls from "../PaginationControls";
@@ -16,6 +16,7 @@ function Jobs() {
   const dispatch = useDispatch();
   const { items, isLoading, error, currentPage, itemsPerPage, filters } =
     useSelector((state) => state.jobs);
+  const { isAdmin } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (items.length === 0) {
@@ -54,6 +55,15 @@ function Jobs() {
     }
   }, [currentPage, totalPages, dispatch]);
 
+  const handleDelete = (e, jobId) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (window.confirm("Are you sure?")) {
+      dispatch(deleteJob(jobId));
+    }
+  };
+
   if (isLoading) {
     return <div className="loading-message">Loading jobs...</div>;
   }
@@ -82,6 +92,16 @@ function Jobs() {
             <section
               className={`job-main-card ${experienceClassName(job.experience)}`}
             >
+              {isAdmin && (
+                <button
+                  className="delete-job-btn"
+                  onClick={(e) => handleDelete(e, job.id)}
+                  aria-label="Delete job"
+                >
+                  Delete
+                </button>
+              )}
+
               <div className="job-main-header">
                 <img
                   src={`/${job.company.toLowerCase()}.png`}

@@ -57,3 +57,22 @@
   padding: 2rem;
   font-weight: bold;
 }
+
+.delete-job-btn {
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(72, 64, 65, 0.15); /* Faint red background */
+  color: var(--bg-black); /* Your global red color */
+  border: 1px solid rgba(91, 75, 77, 0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  width: min-content;
+}
+
+.delete-job-btn:hover {
+  color: var(--text-white);
+  border-color: var(--text-white);
+}
