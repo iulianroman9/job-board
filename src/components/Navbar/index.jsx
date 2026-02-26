@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router";
+import { NavLink, Link, useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../store/authSlice";
 
@@ -16,9 +16,9 @@ function Navbar() {
   return (
     <nav className="main-navbar">
       <div className="nav-links">
-        <Link to="/jobs" className="nav-link">
+        <NavLink to="/jobs" className="nav-link">
           Jobs
-        </Link>
+        </NavLink>
 
         <div className="nav-actions">
           {!isLoggedIn ? (
@@ -28,9 +28,9 @@ function Navbar() {
           ) : (
             <>
               {isAdmin && (
-                <Link to="/admin" className="nav-link">
+                <NavLink to="/admin" className="nav-link">
                   Dashboard
-                </Link>
+                </NavLink>
               )}
               <button onClick={handleLogout} className="nav-btn logout-btn">
                 Log out

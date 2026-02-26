@@ -5,7 +5,7 @@ import Jobs from "./components/Jobs";
 import Contact from "./components/Contact";
 import JobDetails from "./components/JobDetails";
 import Login from "./components/Login";
-import { NavLink } from "react-router";
+import Admin from "./components/Admin";
 import store from "./store/store";
 
 const adminMiddleware = () => {
@@ -40,11 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: (
-          <div>
-            Admin Portal<NavLink to="/jobs">jobs</NavLink>
-          </div>
-        ),
+        Component: Admin,
         loader: adminMiddleware,
       },
       {
