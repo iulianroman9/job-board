@@ -1,36 +1,3 @@
-.admin-page {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 1rem 1rem;
-  width: 100%;
-  max-width: 60rem;
-}
-.admin-page .main-navbar {
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.admin-container {
-  background-color: var(--bg-black);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.admin-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.5rem;
-}
-
-.admin-subtitle {
-  color: var(--text-white);
-  opacity: 0.6;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
 .admin-form {
   display: flex;
   flex-direction: column;
@@ -41,6 +8,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .form-group select {
