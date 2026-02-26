@@ -11,6 +11,7 @@ import {
   filterBySearch,
   sortByDate,
 } from "../../utils/jobFilters";
+import Navbar from "../Navbar";
 
 function Jobs() {
   const dispatch = useDispatch();
@@ -74,6 +75,7 @@ function Jobs() {
 
   return (
     <main className="jobs-container">
+      <Navbar />
       <div className="jobs-header">
         <h2>
           Find Jobs <span>({totalItems})</span>
