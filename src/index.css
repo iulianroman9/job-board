@@ -1,16 +1,35 @@
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap");
 
 :root {
-  --bg-black: #000000;
-  --text-white: #ffffff;
-  --primary-blue: #7b5cec;
-  --accent-red: #e8596a;
-  --accent-green: #6bd1a0;
-  --card-gray: #1c1c1e;
+  --bg: #000000;
+  --card-bg: #1c1c1e;
+  --input-bg: var(--input-bg);
+
+  --text-main: #ffffff;
   --text-muted: #a0a0a5;
+
+  --primary: #7b5cec;
+  --primary-hover: #3b82f6;
+
+  --success: #6bd1a0;
+  --success-bg: rgba(107, 209, 160, 0.15);
+  --success-border: rgba(107, 209, 160, 0.3);
+
+  --danger: #e8596a;
+  --danger-bg: rgba(232, 89, 106, 0.15);
+  --danger-border: rgba(232, 89, 106, 0.3);
+
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-main: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --tag-bg: rgba(255, 255, 255, 0.1);
+  --logo-invert: 100%;
+
   color-scheme: dark;
-  background-color: var(--bg-black);
-  color: var(--text-white);
+  background-color: var(--bg);
+  color: var(--text-main);
 
   font-family: "Satoshi", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -19,6 +38,36 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="light"] {
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --input-bg: #f3f4f6;
+
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  --primary: #ab84e8;
+  --primary-hover: #835bcc;
+
+  --success: #5dc5a4;
+  --success-bg: rgba(5, 150, 105, 0.1);
+  --success-border: rgba(5, 150, 105, 0.2);
+
+  --danger: #ec6868;
+  --danger-bg: rgba(220, 38, 38, 0.1);
+  --danger-border: rgba(220, 38, 38, 0.2);
+
+  --border-light: rgba(0, 0, 0, 0.05);
+  --border-main: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.2);
+
+  --overlay-bg: rgba(255, 255, 255, 0.8);
+  --tag-bg: rgba(0, 0, 0, 0.05);
+  --logo-invert: 0%;
+
+  color-scheme: light;
 }
 
 *,

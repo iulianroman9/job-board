@@ -19,7 +19,7 @@
 .login-back-btn {
   background: none;
   border: none;
-  color: var(--text-white, #ffffff);
+  color: var(--text-main);
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
@@ -32,12 +32,12 @@
 }
 
 .login-container {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   padding: 2.5rem;
   border-radius: 1rem;
   width: 100%;
   max-width: 32rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
 }
 
 .login-container h2 {

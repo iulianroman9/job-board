@@ -19,7 +19,7 @@
 }
 
 .back-link {
-  color: var(--text-white, #ffffff);
+  color: var(--text-main);
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
@@ -31,7 +31,7 @@
 }
 
 .job-main-card {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   border-radius: 1rem;
   padding: 1rem;
   display: flex;
@@ -40,18 +40,18 @@
 }
 
 .card-junior {
-  background-color: var(--accent-green);
-  border: 2px solid var(--accent-green);
+  background-color: var(--success);
+  border: 2px solid var(--success);
 }
 
 .card-mid {
-  background-color: var(--accent-red);
-  border: 2px solid var(--accent-red);
+  background-color: var(--danger);
+  border: 2px solid var(--danger);
 }
 
 .card-senior {
-  background-color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
 .job-main-header {
@@ -64,7 +64,7 @@
 .job-logo {
   width: 3.25rem;
   padding: 0.25rem;
-  background-color: var(--text-white);
+  background-color: var(--text-main);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
@@ -92,8 +92,8 @@
   align-items: center;
   margin-top: 0.5rem;
   padding-top: 1rem;
-  background-color: var(--text-white);
-  color: var(--bg-black);
+  background-color: var(--text-main);
+  color: var(--bg);
   margin: 0 -1rem -1rem -1rem;
   padding: 1rem;
   border-bottom-right-radius: 1rem;
@@ -105,7 +105,7 @@
 }
 
 .job-description {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   border-radius: 1rem;
   padding: 1.5rem;
 }
@@ -115,7 +115,7 @@
 }
 
 .job-requirements {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   border-radius: 1rem;
   padding: 1.5rem;
 }
@@ -129,7 +129,7 @@
 }
 
 .job-role {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   border-radius: 1rem;
   padding: 1.5rem;
 }
@@ -143,10 +143,10 @@
   max-width: fit-content;
   position: sticky;
   bottom: 5rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-bg);
   border-radius: 3rem;
   backdrop-filter: blur(12px);
-  border: 2px solid var(--card-gray);
+  border: 2px solid var(--card-bg);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -165,17 +165,17 @@
 }
 
 .apply-button {
-  color: var(--text-white);
+  color: var(--text-main);
 }
 
 .apply-button:hover {
-  border-color: var(--text-white);
+  border-color: var(--text-main);
 }
 
 .save-button {
-  background-color: var(--text-white);
-  color: var(--bg-black);
-  border: 2px solid var(--text-white);
+  background-color: var(--text-main);
+  color: var(--bg);
+  border: 2px solid var(--text-main);
 }
 
 .save-button:hover {

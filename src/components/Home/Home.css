@@ -1,14 +1,14 @@
 .logo-img {
   width: clamp(5rem, 15vw, 8rem);
   height: auto;
-  filter: invert(100%);
+  filter: invert(var(--logo-invert));
 }
 
 .landing-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-black);
+  background-color: var(--bg);
   padding: 1rem;
   gap: 1rem;
 }
@@ -39,7 +39,7 @@
 }
 
 .features-list li {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   padding: 1rem;
   border-radius: 1rem;
   color: var(--text-muted);
@@ -66,33 +66,33 @@
 }
 
 .primary-link {
-  background-color: var(--primary-blue);
-  border: 2px solid var(--primary-blue);
-  color: var(--text-white);
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: var(--text-main);
 }
 
 .primary-link:hover {
-  border-color: var(--text-white);
+  border-color: var(--text-main);
 }
 
 .secondary-link {
-  background-color: var(--bg-black);
-  color: var(--text-white);
-  border: 2px solid var(--card-gray);
+  background-color: var(--bg);
+  color: var(--text-main);
+  border: 2px solid var(--card-bg);
 }
 
 .secondary-link:hover {
-  border-color: var(--primary-blue);
-  background-color: var(--card-gray);
+  border-color: var(--primary);
+  background-color: var(--card-bg);
 }
 
 .landing-page-navigation {
   position: sticky;
   bottom: 5rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--overlay-bg);
   border-radius: 3rem;
   backdrop-filter: blur(12px);
-  border: 2px solid var(--card-gray);
+  border: 2px solid var(--card-bg);
 }
 
 @media (max-height: 680px), (max-width: 390px) {

@@ -5,13 +5,13 @@
   gap: 1.5rem;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-main);
   width: 100%;
 }
 
 .page-btn {
   background-color: var(--card-gray, #1c1c1e);
-  color: var(--text-white, #ffffff);
+  color: var(--text-main);
   border: 1px solid transparent;
   padding: 0.6rem 1.25rem;
   border-radius: 2rem;
@@ -26,14 +26,14 @@
 
 .page-btn:hover:not(:disabled) {
   background-color: #2a2a2d;
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--border-strong);
 }
 
 .page-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-main);
 }
 
 .page-info {
@@ -43,5 +43,5 @@
 }
 
 .page-info strong {
-  color: var(--text-white, #ffffff);
+  color: var(--text-main);
 }
