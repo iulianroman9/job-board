@@ -1,8 +1,12 @@
 import "./App.css";
 import { Outlet, NavLink, useLocation } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleTheme } from "./store/themeSlice";
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const themeMode = useSelector((state) => state.theme.mode);
 
   return (
     <div className="app">
@@ -14,6 +18,12 @@ function App() {
             Contact us
           </NavLink>
         )}
+        <button
+          onClick={() => dispatch(toggleTheme())}
+          className="theme-toggle-btn"
+        >
+          {themeMode === "dark" ? "Light Mode" : "Dark Mode"}
+        </button>
       </footer>
     </div>
   );

@@ -48,14 +48,14 @@
   --text-main: #111827;
   --text-muted: #6b7280;
 
-  --primary: #6d28d9;
-  --primary-hover: #4f46e5;
+  --primary: #ab84e8;
+  --primary-hover: #835bcc;
 
-  --success: #059669;
+  --success: #5dc5a4;
   --success-bg: rgba(5, 150, 105, 0.1);
   --success-border: rgba(5, 150, 105, 0.2);
 
-  --danger: #dc2626;
+  --danger: #ec6868;
   --danger-bg: rgba(220, 38, 38, 0.1);
   --danger-border: rgba(220, 38, 38, 0.2);
 
