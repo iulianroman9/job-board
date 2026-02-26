@@ -17,7 +17,7 @@
 .contact-back-btn {
   background: none;
   border: none;
-  color: var(--text-white, #ffffff);
+  color: var(--text-main);
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
@@ -30,12 +30,12 @@
 }
 
 .contact-container {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   padding: 2.5rem;
   border-radius: 1rem;
   width: 100%;
   max-width: 32rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-light);
 }
 
 .contact-container h2 {
@@ -69,9 +69,9 @@
 .form-group textarea {
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: #2a2a2d;
-  color: var(--text-white);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border-main);
   border-radius: 0.5rem;
   font-size: 0.95rem;
   outline: none;
@@ -82,16 +82,16 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--primary-blue);
+  border-color: var(--primary);
 }
 
 .form-group input.input-error,
 .form-group textarea.input-error {
-  border-color: var(--accent-red);
+  border-color: var(--danger);
 }
 
 .error-text {
-  color: var(--accent-red);
+  color: var(--danger);
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -104,8 +104,8 @@
 }
 
 .submit-btn {
-  background-color: var(--primary-blue);
-  color: var(--text-white);
+  background-color: var(--primary);
+  color: var(--text-main);
   border: none;
   padding: 1rem;
   border-radius: 2rem;
@@ -135,13 +135,13 @@
 }
 
 .alert.success {
-  background-color: rgba(107, 209, 160, 0.15);
-  color: var(--accent-green);
-  border: 1px solid var(--accent-green);
+  background-color: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success-border);
 }
 
 .alert.error {
-  background-color: rgba(232, 89, 106, 0.15);
-  color: var(--accent-red);
-  border: 1px solid var(--accent-red);
+  background-color: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid var(--danger-border);
 }

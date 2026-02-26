@@ -8,7 +8,7 @@
 }
 
 .footer {
-  background-color: var(--bg-black);
+  background-color: var(--bg);
   text-align: center;
   padding: 1rem;
   position: sticky;
@@ -17,5 +17,5 @@
 }
 
 .contact-link {
-  color: var(--text-white);
+  color: var(--text-main);
 }

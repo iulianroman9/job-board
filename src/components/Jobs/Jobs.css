@@ -19,14 +19,14 @@
 }
 
 .job-main-card {
-  background-color: var(--card-gray);
+  background-color: var(--card-bg);
   transition: all 0.2s ease;
   border: 1px solid transparent;
 }
 
 .job-main-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--border-main);
 }
 
 .jobs-header {
@@ -52,7 +52,7 @@
 
 .error-message {
   text-align: center;
-  color: var(--accent-red);
+  color: var(--danger);
   font-size: 1.1rem;
   padding: 2rem;
   font-weight: bold;
@@ -61,8 +61,8 @@
 .delete-job-btn {
   top: 1rem;
   right: 1rem;
-  background-color: rgba(72, 64, 65, 0.15); /* Faint red background */
-  color: var(--bg-black); /* Your global red color */
+  background-color: rgba(72, 64, 65, 0.15);
+  color: var(--bg);
   border: 1px solid rgba(91, 75, 77, 0.3);
   border-radius: 0.5rem;
   cursor: pointer;
@@ -73,6 +73,6 @@
 }
 
 .delete-job-btn:hover {
-  color: var(--text-white);
-  border-color: var(--text-white);
+  color: var(--text-main);
+  border-color: var(--text-main);
 }
