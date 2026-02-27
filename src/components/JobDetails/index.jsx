@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { experienceClassName } from "../../utils/colors";
 import { useSelector } from "react-redux";
 import supabase from "../../utils/supabase";
+import JobCard from "../JobCard";
 
 function JobDetails() {
   const { id } = useParams();
@@ -86,33 +87,7 @@ function JobDetails() {
       </nav>
 
       <main className="job-details-page">
-        <section
-          className={`job-main-card ${experienceClassName(job.experience)}`}
-        >
-          <div className="job-main-header">
-            <img
-              src={`/${job.company.toLowerCase()}.png`}
-              alt="Company Logo"
-              className="job-logo"
-            />
-            <div>
-              <h2>{job.title}</h2>
-              <p>{job.company}</p>
-            </div>
-          </div>
-
-          <div className="job-tags">
-            <span className="tag">{job.location}</span>
-            <span className="tag">{job.experience}</span>
-            <span className="tag">{job.employment_type}</span>
-          </div>
-
-          <div className="job-salary">
-            <p>{new Date(job.created_at).toLocaleDateString()}</p>
-            <p>{job.salary}</p>
-          </div>
-        </section>
-
+        <JobCard job={job} />
         <section className="job-description">
           <h3>Job Description</h3>
           <p>{job.description}</p>
