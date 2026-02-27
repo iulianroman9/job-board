@@ -3,7 +3,6 @@ import { useEffect, useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchJobs, setCurrentPage, deleteJob } from "../../store/jobsSlice";
 import { Link } from "react-router";
-import { experienceClassName } from "../../utils/colors";
 import PaginationControls from "../PaginationControls";
 import JobFilters from "../JobFilters";
 import {
@@ -12,6 +11,7 @@ import {
   sortByDate,
 } from "../../utils/jobFilters";
 import Navbar from "../Navbar";
+import JobCard from "../JobCard";
 
 function Jobs() {
   const dispatch = useDispatch();
@@ -91,42 +91,11 @@ function Jobs() {
       <div className="jobs-list">
         {currentItems.map((job) => (
           <Link to={`/jobs/${job.id}`} key={job.id} className="job-card-link">
-            <section
-              className={`job-main-card ${experienceClassName(job.experience)}`}
-            >
-              {isAdmin && (
-                <button
-                  className="delete-job-btn"
-                  onClick={(e) => handleDelete(e, job.id)}
-                  aria-label="Delete job"
-                >
-                  Delete
-                </button>
-              )}
-
-              <div className="job-main-header">
-                <img
-                  src={`/${job.company.toLowerCase()}.png`}
-                  alt="Company Logo"
-                  className="job-logo"
-                />
-                <div>
-                  <h2>{job.title}</h2>
-                  <p>{job.company}</p>
-                </div>
-              </div>
-
-              <div className="job-tags">
-                <span className="tag">{job.location}</span>
-                <span className="tag">{job.experience}</span>
-                <span className="tag">{job.employment_type}</span>
-              </div>
-
-              <div className="job-salary">
-                <p>{new Date(job.created_at).toLocaleDateString()}</p>
-                <p>{job.salary}</p>
-              </div>
-            </section>
+            <JobCard
+              job={job}
+              isAdmin={isAdmin}
+              onDelete={(e) => handleDelete(e, job.id)}
+            />
           </Link>
         ))}
       </div>
