@@ -65,19 +65,6 @@ function JobDetails() {
     );
   }
 
-  if (!job) {
-    return (
-      <div className="job-details-container">
-        <nav className="job-details-nav">
-          <NavLink to="/jobs" className="back-link">
-            &larr; Back to Jobs
-          </NavLink>
-        </nav>
-        <div className="error-message">Job not found!</div>
-      </div>
-    );
-  }
-
   return (
     <div className="job-details-container">
       <nav className="job-details-nav">
