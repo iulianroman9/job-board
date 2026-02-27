@@ -17,6 +17,21 @@ const adminMiddleware = () => {
   }
 };
 
+const loginMiddleware = () => {
+  const state = store.getState();
+  const { isLoggedIn, isAdmin } = state.auth;
+
+  if (isLoggedIn) {
+    if (isAdmin) {
+      return redirect("/admin");
+    } else {
+      return redirect("/jobs");
+    }
+  }
+
+  return null;
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +61,7 @@ const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+        loader: loginMiddleware,
       },
       {
         path: "*",

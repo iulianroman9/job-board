@@ -1,5 +1,5 @@
 import "./Login.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { loginUser, clearError } from "../../store/authSlice";
@@ -7,19 +7,7 @@ import { loginUser, clearError } from "../../store/authSlice";
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isLoading, error, isLoggedIn, isAdmin } = useSelector(
-    (state) => state.auth,
-  );
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      if (isAdmin) {
-        navigate("/admin", { replace: true });
-      } else {
-        navigate("/jobs", { replace: true });
-      }
-    }
-  }, [isLoggedIn, isAdmin, navigate]);
+  const { isLoading, error } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -44,7 +32,13 @@ function Login() {
     e.preventDefault();
 
     try {
-      await dispatch(loginUser(formData)).unwrap();
+      const result = await dispatch(loginUser(formData)).unwrap();
+
+      if (result.isAdmin) {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/jobs", { replace: true });
+      }
     } catch (err) {
       console.error("Login failed:", err);
     }
